@@ -28,9 +28,18 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/assets/sass/ltg-devops.scss",
               "src/styles.scss"
+             
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-bs/js/dataTables.bootstrap.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,9 +102,17 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/assets/sass/ltg-devops.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-bs/js/dataTables.bootstrap.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
+            ]
           }
         },
         "lint": {

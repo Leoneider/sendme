@@ -19,6 +19,13 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+    "@types/bootstrap": "3.3.32",
+    "@types/jquery": "^3.3.31",
+    "bootstrap": "^3.4.1",
+    "datatables": "1.10.12",
+    "datatables.net-bs": "1.10.12",
+    "datatables.net-responsive": "2.1.1",
+    "jquery": "^3.4.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

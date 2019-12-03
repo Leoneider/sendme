@@ -1,0 +1,41 @@
+
+
+
+// variables and mixins
+@import "ltg/variables";
+// @import "ltg/mixins";
+
+
+
+.wrapper{
+    position: relative;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    
+}
+
+.sidebar{
+    width: 240px;
+    background-color: $colorverdelimon;
+
+}
+
+.main-panel{
+    background: #F5F5F5;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 65px);
+    overflow: auto;
+    margin-top: 65px;
+  
+}
+
+.navbar-fixed-top{
+    width: calc(100% - 213px);
+    left: 213px;
+}
+
+.main-content{
+    padding: 15px 15px;
+}
