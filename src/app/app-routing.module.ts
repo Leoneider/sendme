@@ -15,6 +15,22 @@ const routes: Routes = [
      {
       path: 'inicio',
       loadChildren: './modules/inicio/inicio.module#InicioModule'
+     },
+     {
+      path: 'contactos',
+      loadChildren: './modules/contactos/contactos.module#ContactosModule'
+     },
+     {
+      path: 'campanas',
+      loadChildren: './modules/campanas/campanas.module#CampanasModule'
+     },
+     {
+      path: 'historicos',
+      loadChildren: './modules/historico/historico.module#HistoricoModule'
+     },
+     {
+      path: 'configuracion',
+      loadChildren: './modules/configuracion/configuracion.module#ConfiguracionModule'
      }
     ]
   },
