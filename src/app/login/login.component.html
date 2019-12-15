@@ -14,7 +14,9 @@
             <div class="form-group">
               <input
                 name="email" 
+                id="email"
                 ngModel
+                [(ngModel)]="user.email"
                 #email="ngModel"
                 type="email"
                 class="form-control"
@@ -32,7 +34,9 @@
             <div class="form-group">
               <input
                 name="password"
+                id="password"
                 ngModel
+                [(ngModel)]="user.password"
                 #password="ngModel"
                 type="password"
                 class="form-control"
