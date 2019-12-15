@@ -1,1 +1,48 @@
-<p>contactos works!</p>
+<div class="container-fluid">
+  <div class="flex">
+    <h1>CONTACTOS</h1>
+    <div class="separador"></div>
+
+    <ul class="nav nav-pills">
+      <li>
+        <a href=""> <i class="fas fa-plus"></i></a>
+      </li>
+      <li>
+        <a href=""> <i class="fas fa-minus"></i></a>
+      </li>
+      <li>
+        <a href=""> <i class="fas fa-edit"></i></a>
+      </li>
+      <li>
+        <a href=""> <i class="fas fa-upload"></i></a>
+      </li>
+      <li>
+        <a href=""> <i class="fas fa-download"></i></a>
+      </li>
+    </ul>
+  </div>
+
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"
+    class="row-border hover"
+  >
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contacto of contactos">
+        <td>{{ contacto.id }}</td>
+        <td>{{ contacto.nombre }} {{ contacto.apellido }}</td>
+        <td>{{ contacto.celular }}</td>
+        <td>{{ contacto.correo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
@@ -6,10 +7,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
+  token:any;
 
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { }
 
   ngOnInit() {
   }
+
+
+  logout(){
+    // this._route.params.subscribe(params => {
+
+      // convertir string a number +
+      let logout = 1;
+
+      // mando variable sure con 1 para saber que es salir
+      if(logout == 1){
+
+        // borrrar las variables de local storage
+        localStorage.removeItem('token');
+
+        // this.identity = null;
+        this.token = null;
+
+        //redireccion
+        this._router.navigate(['login']);
+
+      }
+
+    }
 
 }

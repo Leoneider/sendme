@@ -5,7 +5,9 @@
 @import "ltg/variables";
 // @import "ltg/mixins";
 
-
+body{
+    font-family: 'Varela', sans-serif;
+}
 
 .wrapper{
     position: relative;
@@ -39,3 +41,11 @@
 .main-content{
     padding: 15px 15px;
 }
+
+h1{
+    margin-top: 0; 
+    margin-bottom: 0;
+   }
+
+
+

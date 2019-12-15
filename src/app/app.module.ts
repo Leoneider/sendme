@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule }   from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +22,10 @@ import { LoginComponent } from './login/login.component';
   imports: [
     RouterModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule, 
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

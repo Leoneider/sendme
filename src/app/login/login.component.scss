@@ -1,0 +1,46 @@
+.login {
+  height: 100vh;
+  padding: 7em;
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: 0;
+  width: 1920px;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+}
+
+.container-fluid {
+  background-color: rgb(209, 209, 209);
+}
+
+form {
+  margin-top: 3em;
+}
+
+input {
+  height: 3em;
+}
+
+.loading {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  background-color: #000000e6;
+  justify-content: center;
+}
+
+.loading img {
+  width: 10%;
+}
