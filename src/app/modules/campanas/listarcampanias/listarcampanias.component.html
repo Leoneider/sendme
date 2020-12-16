@@ -1,0 +1,45 @@
+<div class="loading" *ngIf="loading">
+  <img src="../../assets/img/bars.svg" alt="" />
+</div>
+
+<div>
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"
+    class="row-border hover"
+  >
+    <thead>
+      <tr *ngIf="!loading">
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Fecha inicial</th>
+        <th>Fecha final</th>
+        <th>Estado</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let campania of campanias">
+        <td>{{ campania.id }}</td>
+        <td>{{ campania.nombre }}</td>
+        <td>{{ campania.descripcion }}</td>
+        <td>{{ campania.fecha_inicio }}</td>
+        <td>{{ campania.fecha_fin }}</td>
+        <td>{{ campania.estado }}</td>
+        <td>
+          <label class="checkbox-inline">
+            <input
+              type="checkbox"
+              name="inlineRadioOptions"
+              id="inlineRadio1"
+              value=""
+              (click)="seleccionarCampania(campania.id)"
+            />
+          </label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,181 @@
+<div class="container relative">
+  <form [formGroup]="contactoForm" (ngSubmit)="onSubmit(contactoForm.value)">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1><i class="fas fa-address-book"></i> Agregar contacto</h1>
+      </div>
+      <div class="panel-body">
+        <div class="flex">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              formControlName="nombre"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              required
+            />
+            <span
+              *ngIf="
+                !contactoForm.get('nombre').valid &&
+                (contactoForm.get('nombre').dirty ||
+                  contactoForm.get('nombre').touched)
+              "
+              class="invalid"
+            >
+              El nombre es obligatorio.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input
+              type="text"
+              formControlName="apellido"
+              class="form-control"
+              id="apellido"
+              name="apellido"
+              required
+            />
+            <span
+              *ngIf="
+                !contactoForm.get('apellido').valid &&
+                (contactoForm.get('apellido').dirty ||
+                  contactoForm.get('apellido').touched)
+              "
+              class="invalid"
+            >
+              El apellido es obligatorio.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="documento">Documento</label>
+            <input
+              type="text"
+              formControlName="documento"
+              class="form-control"
+              id="documento"
+              name="documento"
+              required
+            />
+            <span
+              *ngIf="
+                !contactoForm.get('documento').valid &&
+                (contactoForm.get('documento').dirty ||
+                  contactoForm.get('documento').touched)
+              "
+              class="invalid"
+            >
+              El documento es obligatorio.
+            </span>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="estado">Estado</label>
+            <input
+              type="text"
+              formControlName="estado"
+              class="form-control"
+              id="estado"
+              name="estado"
+              required
+            />
+            <span
+              *ngIf="
+                !contactoForm.get('estado').valid &&
+                (contactoForm.get('estado').dirty ||
+                  contactoForm.get('estado').touched)
+              "
+              class="invalid"
+            >
+              El estado es obligatorio.
+            </span>
+          </div> -->
+        </div>
+
+        <div class="flex">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="flex">
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="form-group">
+                          <label for="nombreEtiqueta">Nombre etiqueta</label>
+                          <input
+                            id="nombreEtiqueta"
+                            class="form-control"
+                            formControlName="nombreEtiqueta"
+                          />
+                        </div>
+                      </th>
+
+                      <th>
+                        <div class="form-group">
+                          <label for="tipoDatoEtiqueta">Tipo de dato</label>
+                          <select
+                            id="tipoDatoEtiqueta"
+                            class="form-control"
+                            formControlName="tipoDatoEtiqueta"
+                          >
+                            <option value="number">Número</option>
+                            <option value="string" [selected]="true">Texto </option>
+                            <option value="date">Fecha</option>
+                          </select>
+                        </div>
+                      </th>
+
+                      <th>
+                        <div class="form-group">
+                          <label for="datoEtiqueta">Dato</label>
+                          <input
+                            id="datoEtiqueta"
+                            class="form-control"
+                            formControlName="datoEtiqueta"
+                          />
+                        </div>
+                      </th>
+
+                      <th>
+                        <h2>
+                          <a (click)="agregarCamposPersonalizados()"
+                            ><i class="fas fa-plus-square"></i
+                          ></a>
+                        </h2>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let etiqueta of etiquetas; index as i">
+                      <td>{{ etiqueta.nombre }}</td>
+                      <td>{{ etiqueta.tipo }}</td>
+                      <td>{{ etiqueta.dato }}</td>
+                      <td>
+                        <a (click)="deleteCampoPersonalizado(i)"
+                          ><i class="fas fa-trash-alt"></i
+                        ></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- enddflex -->
+      </div>
+    </div>
+
+    <hr />
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!contactoForm.valid"
+    >
+      Guardar
+    </button>
+  </form>
+</div>

@@ -1,0 +1,364 @@
+<div class="container relative">
+  <form [formGroup]="campanaForm" (ngSubmit)="onSubmit(campanaForm.value)">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1><i class="fas fa-sms"></i> Nueva campaña</h1>
+      </div>
+      <div class="panel-body">
+        <div class="flex">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              formControlName="nombre"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              required
+            />
+            <span
+              *ngIf="
+                !campanaForm.get('nombre').valid &&
+                (campanaForm.get('nombre').dirty ||
+                  campanaForm.get('nombre').touched)
+              "
+              class="invalid"
+            >
+              El nombre es obligatorio.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="descripcion"
+              id="descripcion"
+         
+              required
+            />
+            <span
+              *ngIf="
+                !campanaForm.get('descripcion').valid &&
+                (campanaForm.get('descripcion').dirty ||
+                  campanaForm.get('descripcion').touched)
+              "
+              class="invalid"
+            >
+              La descripción es obligatoria.
+            </span>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="form-group">
+            <label for="fechainicial">Fecha inicial</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechainicial"
+              formControlName="fechainicial"
+              required
+            />
+            <span
+              *ngIf="
+                !campanaForm.get('fechainicial').valid &&
+                (campanaForm.get('fechainicial').dirty ||
+                  campanaForm.get('fechainicial').touched)
+              "
+              class="invalid"
+            >
+              La fecha inicial es obligatoria.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="fechafinal">Fecha final</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fechafinal"
+              formControlName="fechafinal"
+             
+            />
+          
+          </div>
+
+          <div class="form-group">
+            <label for="hora">Hora</label>
+            <input
+              type="text"
+              class="form-control"
+              id="hora"
+              
+              formControlName="hora"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="estado">Estado</label>
+            <input
+              type="text"
+              class="form-control"
+              id="estado"
+             
+              formControlName="estado"
+            />
+          </div>
+        </div>
+
+        <div class="form-group" formGroupName="dias">
+          <label>Dias para envio de mensajes</label>
+
+          <div class="flex">
+            <input
+              type="checkbox"
+              id="lunes"
+              class="size"
+              formControlName="lunes"
+            />
+            <label for="lunes"><span>L</span></label>
+
+            <input
+              type="checkbox"
+              id="martes"
+              class="size"
+              formControlName="martes"
+            />
+            <label for="martes"><span>M</span></label>
+
+            <input
+              type="checkbox"
+              id="miercoles"
+              class="size"
+              formControlName="miercoles"
+            />
+            <label for="miercoles"><span>M</span></label>
+
+            <input
+              type="checkbox"
+              id="jueves"
+              class="size"
+              formControlName="jueves"
+            />
+            <label for="jueves"><span>J</span></label>
+
+            <input
+              type="checkbox"
+              id="viernes"
+              class="size"
+              formControlName="viernes"
+            />
+            <label for="viernes"><span>V</span></label>
+
+            <input
+              type="checkbox"
+              id="sabado"
+              class="size"
+              formControlName="sabado"
+            />
+            <label for="sabado"><span>S</span></label>
+
+            <input
+              type="checkbox"
+              id="domingo"
+              class="size"
+              formControlName="domingo"
+            />
+            <label for="domingo"><span>D</span></label>
+          </div>
+          <span
+          *ngIf="!diasValid"
+          class="invalid"
+        >
+          Debe seleccionar al menos un día
+        </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default" formGroupName="activadores">
+      <div class="panel-heading">
+        <h3 class="panel-title">Activadores</h3>
+      </div>
+      <div class="panel-body">
+        <div class="flex">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>
+                  <div class="form-group">
+                    <label for="id">Campo</label>
+                    <select
+                      id="id"
+                      class="form-control"
+                      formControlName="id"
+                      
+                      (change)="cambiarTipoDatoInput()"
+                    >
+                      <option value="">Seleccione un campo</option>
+                      <option
+                        [ngValue]="campo.id"
+                        *ngFor="let campo of camposPersonalizados"
+                        >{{ campo.etiqueta }}</option
+                      >
+                    </select>
+                  </div>
+                </th>
+
+                <th>
+                  <div class="form-group">
+                    <label for="condicion">Condición</label>
+                    <select
+                      id="condicion"
+                      class="form-control"
+                      formControlName="condicion"
+                      (change)="mostrarValor()"
+                    >
+                    <option value="">Seleccione una condición</option>
+                    <option  *ngFor="let item of combo" [ngValue]="item">{{ item }}</option>
+                    
+                    
+                    </select>
+                  </div>
+                </th>
+                <th>
+                  <div class="form-group"   [hidden]="!noMostrarValor">
+                    <label for="valor">Valor</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="valor"
+                      placeholder="Valor"
+                      formControlName="valor"
+                     
+                    />
+                  </div>
+                </th>
+                <th>
+                  <h2>
+                    <a (click)="agregarActivadores()"
+                      ><i class="fas fa-plus-square"></i
+                    ></a>
+
+                
+                  </h2>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let activador of activadores; index as i">
+                <td>{{ activador.campo }}</td>
+                <td>{{ activador.condicion }}</td>
+                <td>{{ activador.valor }}</td>
+                <td>
+                  <a (click)="deleteActivador(i)"
+                    ><i class="fas fa-trash-alt"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Mensajes</h3>
+      </div>
+      <div class="panel-body">
+        <div class="flex">
+          <div>
+            <select class="form-control tipo-mensaje">
+              <option>SMS Y EMAIL</option>
+              <option>SMS</option>
+              <option>EMAIL</option>
+            </select>
+          </div>
+          <div class="flex-column">
+            <textarea
+              class="form-control"
+              rows="3"
+              (keyup)="onKey($event)"
+              [ngClass]="{ red: isActive }"
+              formControlName="mensaje"
+              required
+            ></textarea>
+            <span
+            *ngIf="
+              !campanaForm.get('mensaje').valid &&
+              (campanaForm.get('mensaje').dirty ||
+                campanaForm.get('mensaje').touched)
+            "
+            class="invalid"
+          >
+            Por favor escriba un mensaje
+          </span>
+
+            <span class="right" *ngIf="contador">{{ contador }}</span>
+
+            <div class="flex-center">
+              <label style="margin-right: 15px;">Dato dinámico</label>
+              <select
+                style="margin-right: 15px;"
+                class="form-control dato-dinamico"
+                formControlName="campoMensaje"
+              >
+              
+                <option *ngFor="let camposMensaje of camposMensajes" [ngValue]="camposMensaje">{{ camposMensaje }}</option>
+               
+              
+              </select>
+              <button (click)="agregarDatoDinamico()" class="btn btn-default">Insertar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <button type="submit" class="btn btn-success" [disabled]="!campanaForm.valid">
+      Guardar
+    </button>
+    <button
+      type="submit"
+      class="btn btn-default"
+      [disabled]="!campanaForm.valid"
+    >
+      Guardar y crear otro
+    </button>
+  </form>
+
+  <!-- <div class="loading" *ngIf="loading">
+          <p>HOLAA</p>
+          <img src="../../assets/img/bars.svg" alt="" />
+        </div> -->
+
+  <!-- <div *ngIf="!loading">
+          <table
+            datatable
+            [dtOptions]="dtOptions"
+            [dtTrigger]="dtTrigger"
+            class="row-border hover"
+          >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>E-mail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let contacto of contactos">
+                <td>{{ contacto.id }}</td>
+                <td>{{ contacto.nombre }} {{ contacto.apellido }}</td>
+                <td>{{ contacto.celular }}</td>
+                <td>{{ contacto.correo }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
+</div>

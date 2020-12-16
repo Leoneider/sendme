@@ -1,0 +1,161 @@
+
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+
+
+.badge{
+    height: 20px;
+    margin-right: 15px;
+}
+
+
+.tipo-mensaje{
+    width: 240px;
+    margin-right: 15PX;
+
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    ;
+}
+textarea{
+    width: 420px;
+}
+
+.dato-dinamico{
+   width: 100px;
+}
+
+.red{
+    background-color: rgba(251, 0, 0, 0.075);
+    border-color: crimson;
+}
+
+.right{
+    text-align: end;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+/*
+  UI Styles: Checkbox Core
+*/
+input[type="checkbox"],
+input[type="checkbox"]:active,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:checked {
+  display: none;
+}
+
+input[type="checkbox"]:disabled,
+input[type="checkbox"]:disabled + label span {
+  cursor: not-allowed;
+}
+
+input[type="checkbox"] + label span {
+  display: inline-block;
+  width: 32px;
+  height: 30px;
+  background: #454545;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  margin: 5px;
+  border: none;
+  appearance: none;
+  transition: .075s;
+//   box-shadow: 0 2px 0 #000;
+}
+
+input[type="checkbox"]:checked + label span:after {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 40px;
+  height: 40px;
+//   box-shadow: inset 0 0 0 2px #d0d0d0;
+  border-radius: 4px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+
+
+  color: rgba(255, 255, 255, 0.3);
+  transition: .045s;
+}
+
+input[type="checkbox"]:checked + label span:active::after {
+  height: 38px;
+}
+
+
+
+/*
+  UI Styles: Checkbox Sizes
+*/
+input[type="checkbox"].size + label span {
+  background: #fff;
+  border: 1px solid #E3E3E3;
+  text-align: center;
+  line-height: 32px;
+  font-size: 16px;
+  color: rgb(172, 172, 172);
+}
+
+
+
+input[type="checkbox"].size + label span:hover {
+  background: #7de19e;
+  color: #FFF;
+
+}
+
+
+
+
+input[type="checkbox"]:checked.size + label span {
+  content: "";
+  color: #fff;
+  background: #00a136;
+}
+
+input[type="checkbox"]:checked.size + label span:after {
+  content: "";
+  color: rgba(255, 255, 255, 0.3);
+}
+
+input[type="checkbox"]:disabled.size + label span {
+  opacity: 0.4;
+}
+input[type="checkbox"]:disabled.size + label span:hover {
+  background: #b9d9f5;
+  box-shadow: 0 2px 0 #94bfe4;
+}
+input[type="checkbox"]:disabled.size + label span:active {
+  top: 0;
+  box-shadow: 0 2px 0 #94bfe4;
+}
+
+
+
+
+.invalid{
+  color: #f6423f;
+}
