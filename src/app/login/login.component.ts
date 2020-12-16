@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loading: boolean;
   title: string;
   token:any;
+  usuario;
 
   // variable para usuario logueado
   status: string;
@@ -36,8 +37,14 @@ export class LoginComponent implements OnInit {
         console.log(response);
 
         this.token = response.access_token;
+        this.usuario = response.user;
+
+
+
         console.log(response);
         localStorage.setItem("token", JSON.stringify(this.token));
+        localStorage.setItem("usuario", JSON.stringify(this.usuario));
+
         this.loading = false;
 
         this._router.navigateByUrl("contactos");

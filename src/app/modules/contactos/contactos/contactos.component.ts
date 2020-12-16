@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ContactoService } from 'src/app/servicios/contacto.service';
 import { Contacto } from 'src/app/models/contacto';
 import { Subject } from 'rxjs';
@@ -14,15 +14,23 @@ export class ContactosComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   contactos: Contacto[] = [];
   dtTrigger: Subject<any> = new Subject<any>();
+  loading:boolean;
+  idsContactos = [];
  
 
   constructor(
-    private _contactoService: ContactoService
-  ) { }
+    private _contactoService: ContactoService,
+    private chRef: ChangeDetectorRef,
+  ) { 
+    this.loading = true;
+  }
 
   ngOnInit():void {
     this.dtOptions = {
       pagingType: 'full_numbers',
+      pageLength : 15,
+      lengthChange: false,
+			
       language: {
         search: "_INPUT_",
         searchPlaceholder: "Buscar producto",
@@ -48,13 +56,13 @@ export class ContactosComponent implements OnInit {
   
     this._contactoService.contacto().subscribe(
       response => {
-        console.log(response.data);
+        this.loading = false;
         this.contactos = response.data;
+        this.chRef.detectChanges();
         this.dtTrigger.next();
-      
       },
       error => {
-        // this.loading = false;
+        this.loading = false;
         // this.status = "error";
         console.log(<any>error);
       }
@@ -64,6 +72,23 @@ export class ContactosComponent implements OnInit {
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
+  }
+
+  eliminarContacto(event: any, id){
+   
+    if (event.target.checked) {
+      this.idsContactos.push(id)
+      this.idsContactos = [... new Set(this.idsContactos)] 
+      console.log(this.idsContactos.sort()) 
+    }else{
+      let number = this.idsContactos.indexOf(id)
+      console.log(number);
+      this.idsContactos.splice(number,1);
+    }
+   
+
+
+
   }
 
 

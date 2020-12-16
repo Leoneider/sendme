@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid relative">
   <div class="flex">
-    <h1>CONTACTOS</h1>
+    <h1> <i class="far fa-address-book"></i> CONTACTOS</h1>
     <div class="separador"></div>
 
     <ul class="nav nav-pills">
       <li>
-        <a href=""> <i class="fas fa-plus"></i></a>
+        <a [routerLink]="['/contactos/agregar']"> <i class="fas fa-plus"></i></a>
       </li>
       <li>
         <a href=""> <i class="fas fa-minus"></i></a>
@@ -22,27 +22,46 @@
     </ul>
   </div>
 
-  <table
-    datatable
-    [dtOptions]="dtOptions"
-    [dtTrigger]="dtTrigger"
-    class="row-border hover"
-  >
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Teléfono</th>
-        <th>E-mail</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let contacto of contactos">
-        <td>{{ contacto.id }}</td>
-        <td>{{ contacto.nombre }} {{ contacto.apellido }}</td>
-        <td>{{ contacto.celular }}</td>
-        <td>{{ contacto.correo }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="loading" *ngIf="loading">
+    <img src="../../assets/img/bars.svg" alt="" />
+  </div>
+
+  <div *ngIf="!loading">
+    <table
+      datatable
+      [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"
+      class="row-border hover"
+    >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>E-mail</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contacto of contactos">
+          <td>{{ contacto.id }}</td>
+          <td>{{ contacto.nombre }} {{ contacto.apellido }}</td>
+          <td>{{ contacto.celular }}</td>
+          <td>{{ contacto.correo }}</td>
+          <td>
+            <label class="checkbox-inline">
+              <input
+                type="checkbox"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value=""
+                (click)="eliminarContacto($event, contacto.id)"
+              />
+            </label>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -29,6 +29,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+         
               "src/assets/sass/ltg-devops.scss",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "src/styles.scss"
@@ -41,7 +43,8 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/datatables.net-bs/js/dataTables.bootstrap.js",
-              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+              "node_modules/bootstrap-notify/bootstrap-notify.js"
             ]
           },
           "configurations": {
@@ -106,6 +109,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
               "src/assets/sass/ltg-devops.scss",
               "src/styles.scss"
             ],
@@ -114,7 +118,8 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/datatables.net-bs/js/dataTables.bootstrap.js",
-              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+              "node_modules/bootstrap-notify/bootstrap-notify.js"
             ]
           }
         },

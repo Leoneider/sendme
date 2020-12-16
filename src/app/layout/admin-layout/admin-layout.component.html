@@ -3,37 +3,51 @@
     <img class="img-responsive logo" src="../assets/img/logo.svg" alt="" />
 
     <ul class="nav nav-pills nav-stacked">
-      <li role="presentation" routerLinkActive="active">
+      <!-- <li role="presentation" routerLinkActive="active">
         <a [routerLink]="['/inicio']">
+          <h4>
           <i class="fas fa-home"></i>
-          Inicio</a
+          Inicio</h4></a
         >
-      </li>
+      </li> -->
 
       <li role="presentation" routerLinkActive="active">
         <a [routerLink]="['/contactos']">
+          <h4>
           <i class="far fa-address-book"></i>
-          Contactos</a
+          Contactos</h4></a
         >
       </li>
 
 
       <li role="presentation" routerLinkActive="active">
+
+
+
+        
         <a [routerLink]="['/campanas']">
+          <h4>
+
           <i class="fas fa-sms"></i>
-          Campañas</a
+          Campañas
+        </h4></a
         >
+      
       </li>
       <li role="presentation" routerLinkActive="active">
         <a [routerLink]="['/historicos']">
+          <h4>
           <i class="fas fa-history"></i>
-          Historico</a
+          Historico
+        </h4></a
         >
       </li>
       <li role="presentation" routerLinkActive="active">
         <a [routerLink]="['/configuracion']">
+          <h4>
           <i class="fas fa-cog"></i>
-          Configuración</a
+          Configuración</h4></a
+        
         >
       </li>
     </ul>
@@ -61,16 +75,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a
-              href="#"
-              class="dropdown-toggle"
-              data-toggle="dropdown"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <em>Hola, Leoneider Trigos</em>
-            </a>
+         
+              <h4 style="line-height: 41px;"><span>Bienvenido, </span> <strong>{{ usuario }}</strong></h4>
+            
           </li>
 
           <li class="dropdown">

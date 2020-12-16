@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
 })
 export class AdminLayoutComponent implements OnInit {
   token:any;
+  usuario;
 
   constructor(
     private _router: Router
   ) { }
 
   ngOnInit() {
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
   }
 
 

@@ -1,0 +1,26 @@
+.flex{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.separador{
+    width: 2px;
+    height: 40px;
+    background: #A8CF45;
+    margin: 0 10px;
+}
+
+.position{
+    position: relative;
+}
+
+.loading{
+    background-color: transparent;
+}
+
+
+a{
+    color: #96989A;
+    border-radius: 0;
+}

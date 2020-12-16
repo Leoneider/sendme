@@ -3,7 +3,12 @@
 
 // variables and mixins
 @import "ltg/variables";
+// @import "ltg/alerts";
 // @import "ltg/mixins";
+
+
+//plugins css
+@import "ltg/plugins/animate";
 
 body{
     font-family: 'Varela', sans-serif;
@@ -48,4 +53,79 @@ h1{
    }
 
 
+   .dataTables_wrapper .dataTables_paginate .paginate_button {
+ 
+    padding: 0 !important;
+    
+}
 
+
+.loading {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 999;
+    background-color: #000000e6;
+    justify-content: center;
+  }
+  
+
+
+a:hover{
+    color: #F58634;
+}
+
+.nav-pills>li>a {
+    border-radius: 0px;
+
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #F58634;
+    background-color: #F0F4CC;
+}
+
+.nav-stacked>li+li {
+    margin-top: 0; 
+    margin-left: 0;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #b6dbef8c;
+}
+
+// .alert-danger {
+    // color: #f6423f;
+    // background-color: transparent; 
+    // border-color: transparent;
+// }
+
+.flex{
+    display: flex;
+    align-items: flex-start;
+  
+}
+
+
+.container{
+    width: 70%;
+    margin: 0;
+
+}
+
+.form-group{
+    margin-right: 15px;
+    width: 100%;
+}
+
+.btn{
+    margin-right: 15px;
+}
+
+th h2{
+    font-size: 40px;
+}

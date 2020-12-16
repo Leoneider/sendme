@@ -12,10 +12,10 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      {
-        path: "inicio",
-        loadChildren: "./modules/inicio/inicio.module#InicioModule"
-      },
+      // {
+      //   path: "inicio",
+      //   loadChildren: "./modules/inicio/inicio.module#InicioModule"
+      // },
       {
         path: "contactos",
         loadChildren: "./modules/contactos/contactos.module#ContactosModule"

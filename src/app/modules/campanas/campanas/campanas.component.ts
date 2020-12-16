@@ -12,4 +12,10 @@ export class CampanasComponent implements OnInit {
   ngOnInit() {
   }
 
+  recibirCampania($event){
+    window.alert('Campania'+$event);
+ 
+
+ }
+
 }
